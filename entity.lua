@@ -9,6 +9,10 @@ local function Entity(x, y, image, speed)
       return self.image:getWidth()
     end,
 
+    getHeight = function(self)
+      return self.image:getHeight()
+    end,
+
     draw = function(self)
       love.graphics.draw(self.image, self.x, self.y)
     end
