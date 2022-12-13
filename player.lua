@@ -23,7 +23,7 @@ local function Player()
 
   player.keyPressed = function(self, key)
     if key == 'space' then
-      table.insert(listOfBullets, Bullet(self.x, self.y))
+      table.insert(listOfBullets, Bullet(self.x + (self:getWidth() / 2), self.y + self:getHeight()))
     end
   end
 
