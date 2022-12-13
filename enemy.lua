@@ -11,11 +11,15 @@ local function Enemy()
     -- Enemy should change directions once it hits a wall
     if self.x < 0 then
       self.x = 0
-      self.speed = 100
+      self:changeDirection()
     elseif self.x > window_width - self:getWidth() then
       self.x = window_width - self:getWidth()
-      self.speed = -100
+      self:changeDirection()
     end
+  end
+
+  enemy.changeDirection = function(self)
+    self.speed = self.speed * -1
   end
 
   return enemy
