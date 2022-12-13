@@ -3,6 +3,7 @@ local Enemy = require('enemy')
 local Bullet = require('bullet')
 
 function love.load()
+  score = 0
   player = Player()
   enemy = Enemy()
   listOfBullets = {}
@@ -22,6 +23,7 @@ function love.update(dt)
 
     if v:isDead() then
       table.remove(listOfBullets, i)
+      score = score + 1
     end
   end
 end
@@ -29,6 +31,7 @@ end
 function love.draw()
   player:draw()
   enemy:draw()
+  love.graphics.print('Score: ' .. score, 0, 0, 0, 2, 2)
 
   for i, v in ipairs(listOfBullets) do
     v:draw()
