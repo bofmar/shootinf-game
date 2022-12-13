@@ -35,7 +35,7 @@ local function Bullet(x, y)
         and bullet_top < obj_bottom then
       self.dead = true
 
-      obj.speed = obj.speed + 50
+      obj.speed = obj.speed > 0 and obj.speed + 50 or obj.speed - 50
     end
   end
 
